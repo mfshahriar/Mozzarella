@@ -107,4 +107,5 @@ $rowCount = getMenuRowCount()["COUNT(*)"];
     <p class="text-center">Total Item shown: <i id="rowCount"><?php echo $rowCount; ?></i></p>
     <script src="JS/order.js"></script>
 </div>
+
 </html>

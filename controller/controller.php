@@ -15,6 +15,12 @@ function getItemById($id){
     return mysqli_fetch_assoc($item);
 }
 
+function getAllAddOns(){
+    $query="SELECT * FROM addons";
+    $addons=getArray($query);
+    return $addons;
+}
+
 function getMenuRowCount(){
     $query="SELECT COUNT(*) FROM menu";
     $item=getResult($query);

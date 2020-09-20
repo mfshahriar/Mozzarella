@@ -6,6 +6,24 @@ $id=$_GET['id'];
 
 $item=getItemById($id);
 
+$add_ons=getAllAddOns();
+
+$add_ons_table='';
+
+foreach($add_ons as $add_on){
+    $add_ons_table=$add_ons_table.'<tr>
+    <th>
+        <input onclick="add_cb('.$add_on["id"].')" id="addon_'.$add_on["id"].'" type="checkbox">
+        <label for="garlic">'.$add_on["addon_name"].'</label>
+    </th>
+    <th>
+    <i id="addon_price_'.$add_on["id"].'">
+    '.$add_on["price"].'
+    </i>TK
+    </th>
+    </tr>';
+}
+
 
 echo '<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -23,12 +41,12 @@ echo '<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria
                                     <img src="Images/'.$item["image"].'.png" class="container_div p_img popup" height="40" width="60">
                                     <div class="container_div popup" id="p_price_div">
                                         <h6 id="p_name">'.$item["f_name"].'</h6>
-                                        <p id="p_price">TK: '.$item["price"].'</p>
+                                        <p id="p_price">TK: <i id="price_txt">'.$item["price"].'</i></p>
                                     </div>
                                     <div class="container_div">
                                         <input type="number" id="p_input" max="50" min="1">
-                                        <button id="p_plus_btn" class="btn btn-info p_btn">+</button>
-                                        <button id="p_minus_btn" class="btn btn-danger p_btn">-</button>
+                                        <button onclick="incCount()" id="p_plus_btn" class="btn btn-info p_btn">+</button>
+                                        <button onclick="decCount()" id="p_minus_btn" class="btn btn-danger p_btn">-</button>
                                     </div>
 
                                 </li>
@@ -50,40 +68,12 @@ echo '<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria
                                                 <th> Add-ons </th>
                                                 <th> Cost</th>
                                             </tr>
-                                            <tr>
+                                            '.$add_ons_table.'
                                                 <th>
-                                                    <input id="garlic" type="checkbox" value="garlic">
-                                                    <label for="garlic">Garlic Sauce</label>
+                                                    <b>Total Cost:</b>
                                                 </th>
                                                 <th>
-                                                    40 TK
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <input id="bbq" type="checkbox" value="bbq">
-                                                    <label for="bbq">BBQ Sauce</label>
-                                                </th>
-                                                <th>
-                                                    40 TK
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <input id="cheese" type="checkbox" value="cheese">
-                                                    <label for="cheese">Extra CHEESE</label>
-                                                </th>
-                                                <th>
-                                                    40 TK
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>
-                                                    <input id="mint" type="checkbox" value="mint">
-                                                    <label for="mint">Mint Sauce</label>
-                                                </th>
-                                                <th>
-                                                    40 TK
+                                                <b id="t_cost_txt">  0 TK </b>
                                                 </th>
                                             </tr>
                                         </table>
@@ -96,6 +86,6 @@ echo '<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria
                             </div>
                         </div>
                     </div>
-                </div>';
+                </div>;'
 
                 ?>
