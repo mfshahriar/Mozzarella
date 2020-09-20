@@ -2,7 +2,7 @@
 
 require "./controller/controller.php";
 
-$id=$_POST['food_id'];
+$id=$_GET['id'];
 
 $item=getItemById($id);
 
