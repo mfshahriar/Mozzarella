@@ -1,0 +1,124 @@
+body {
+    margin: 0%;
+    overflow: scroll;
+    background-color: #1a1827;
+}
+
+header{
+    background-color:#303030;
+    height: 80%;
+    padding-left: 30px ;
+    padding-right: 10px ;
+}
+
+.logo {
+    height: 40px; 
+    width: 180px;
+    padding: 8px;
+}
+
+.header_btn_msg {
+    height: 30px; 
+    width: 50px;
+}
+
+.header_btn_msg:hover {
+    height: 33px;
+    width: 55px;
+}
+
+.header_btn_profile {
+    height: 30px; 
+    width: 30px;
+}
+
+.header_btn_profile:hover {
+    height: 33px;
+    width: 33px;
+}
+
+.nav {
+    margin: 0;
+    float: right;
+}
+header nav{
+    float:right;
+    margin-top:0px;
+}
+header li {
+    float: left;
+    display:inline;
+    padding: 0 45px 0 15px;
+}
+
+.main {
+    float: left;   
+}
+main {
+    overflow: hidden;
+}
+
+#options {
+    background-color:#1a1827;
+    height: 100%;
+    width: 15%;
+    padding-top: 70px;
+    padding-bottom: 100px;
+    font-family: 'Righteous', cursive;
+    font-size: bold;
+}
+#body {
+    background-color: #d1ccff;
+    height: 100%;
+    width: 85%;
+}
+
+.optn_btn {
+    font-size: 25px;
+    text-align: left;
+    border: transparent;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+    background-color: transparent;
+    width: 100%;
+    color: bisque;
+}
+
+.optn_btn:hover {
+    background-color: #2D2D2D;
+    border: #2D2D2D'
+}
+
+.cards {
+    background-color: #3B517F;
+    height: 90px;
+    width: 220px;
+    float: left;
+    margin: 30px;
+    font-size: 15px;
+    text-align: center;
+    align-self: center;
+}
+
+.cards p {
+    font-size: 20px;
+    color: #a6e3fc;
+}
+.cards h3 {
+    color:#9aacd4;
+}
+
+.cards:hover {
+    background-color: #324469;
+}
+
+.chart_div {
+    float: left;
+    width: 40%; 
+    height: 300px; 
+    float: right;
+    padding:4.5%;
+    padding-bottom: 100px;
+}
