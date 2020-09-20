@@ -3,7 +3,7 @@ require "./controller/controller.php";
 
 $food_type = array(1 => 'Burger', 2 => 'Pizza', 3 => 'Sub', 4 => 'Drink');
 
-$rowCount=getMenuRowCount()["COUNT(*)"];
+$rowCount = getMenuRowCount()["COUNT(*)"];
 
 ?>
 
@@ -83,7 +83,7 @@ $rowCount=getMenuRowCount()["COUNT(*)"];
                                     <h3>TK : <?php echo $item['price']  ?></h4>
                                 </div>
                                 <div class="container_div">
-                                    <button class="opt_btn" id="<?php echo $item['id']  ?>_opt_btn" value="<?php echo $item['id']  ?>" type="button" data-toggle="modal" data-target="#exampleModal">
+                                    <button class="opt_btn" onclick="loadPopup('<?php echo $item['id'] ?>')" value="<?php echo $item['id']  ?>" type="button" data-toggle="modal" data-target="#exampleModal">
                                         <i class="fas fa-align-justify fa-6x"></i>
                                     </button>
                                 </div>
@@ -99,7 +99,7 @@ $rowCount=getMenuRowCount()["COUNT(*)"];
             </div>
         </div>
         <div id="popup_container">
-        
+
         </div>
 </body>
 
@@ -107,5 +107,4 @@ $rowCount=getMenuRowCount()["COUNT(*)"];
     <p class="text-center">Total Item shown: <i id="rowCount"><?php echo $rowCount; ?></i></p>
     <script src="JS/order.js"></script>
 </div>
-
 </html>
