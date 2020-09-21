@@ -33,7 +33,7 @@ $rowCount = getMenuRowCount()["COUNT(*)"];
         <nav class="navbar  justify-content-between">
             <a class="navbar-brand"> <img src="./Images/logo.png" alt="" class="logo"></a>
             <form class="form-inline">
-                <button class="btn btn-outline-primary my-2 my-sm-0 " type="submit">Cart</button> &nbsp; &nbsp;
+                 <!-- &nbsp; &nbsp; -->
                 <button class="btn btn-outline-danger my-2 my-sm-0 " type="submit">Manage Account</button>
             </form>
         </nav>
@@ -95,7 +95,12 @@ $rowCount = getMenuRowCount()["COUNT(*)"];
 
             </div>
             <div class="main" id="side_q">
+                <div id="side_q_table">
 
+                </div>
+                <div>
+                <button onclick="sendData()" id="confirm_btn" class="btn btn-outline-primary my-2 my-sm-0 " type="submit">Confirm</button>
+                </div>
             </div>
         </div>
         <div id="popup_container">
@@ -106,6 +111,7 @@ $rowCount = getMenuRowCount()["COUNT(*)"];
 <div class="footer text-muted">
     <p class="text-center">Total Item shown: <i id="rowCount"><?php echo $rowCount; ?></i></p>
     <script src="JS/order.js"></script>
+    <script src="JS/hudai.js" ></script>
 </div>
 
 </html>
