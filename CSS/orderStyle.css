@@ -124,10 +124,11 @@ header li {
     position: fixed;
     left: 80%;
     color: seashell;
-    padding: 20px;
+    padding: 10px;
     padding-top: 50px;
     height: 500px;
     opacity: 40%;
+    overflow-y: scroll;
 }
 
 
@@ -160,4 +161,8 @@ header li {
 
 .modal_length{
     min-width: 100%;
+}
+
+#ordered_table{
+    color: steelblue;
 }
