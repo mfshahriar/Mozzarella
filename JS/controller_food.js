@@ -2,23 +2,20 @@ document.getElementById("hidden_div").hidden = true;
 
 function sendData(id) {
   if (document.getElementById("inp_" + id).value != "") {
-    var x = parseInt(document.getElementById("inp_" + id).value);
-    var y = parseInt(document.getElementById("amount_" + id).innerText);
-    var newAmount = x + y;
+    var newAmount = parseInt(document.getElementById("inp_" + id).value);
     var data = [id, newAmount];
     var sendData = JSON.stringify(data);
     document.getElementById("hidden_txt").value = sendData;
-    //alert(typeof(sendData));
+    //alert(sendData);
     document.getElementById("hidden_btn1").click();
   }
 }
-
-function addNewInventory() {
+function addNewItem() {
   var name = document.getElementById("inp_name");
-  var amount = document.getElementById("inp_amount");
-  var pc = document.getElementById("inp_pc");
-  if (name.value != "" && amount.value != "" && pc.value != "") {
-    var data = [name.value, amount.value, pc.value];
+  var price = document.getElementById("inp_price");
+  var type = document.getElementById("inp_type");
+  if (name.value != "" && price.value != "" && type.value != "") {
+    var data = [name.value, price.value, type.value];
     var sendData = JSON.stringify(data);
     document.getElementById("hidden_txt").value = sendData;
     //alert(sendData);
