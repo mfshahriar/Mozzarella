@@ -1,24 +1,13 @@
-<!-- <?php
-        require "./controller/controller.php";
+<?php
+require "./controller/controller.php";
+if(isset($_POST['id'])){
+    $id=$_POST['id'];
+    //echo $id;
+    removeOrderById($id);
+}
 
-        $data = "";
-        $arr = array();
-        $totalPrice = 0;
-        $item_array = array();
-
-        if (isset($_POST['txt_name']) && $_POST['txt_name'] != "[]") {
-            $data = $_POST['txt_name'];
-            //print_r($data);
-            $d = json_decode($data);
-
-            for ($i = 0; $i < count($d); $i++) {
-                array_push($arr, json_decode($d[$i]));
-                //echo $arr[$i][0] . ' ' . $arr[$i][1] . ' ' . $arr[$i][2] . '<br>';
-                $totalPrice += (int)$arr[$i][2];
-                array_push($item_array, getItemById($arr[$i][0]));
-            }
-        }
-        ?> -->
+$orders = getAllOrders();
+?>
 
 
 
@@ -37,7 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./CSS/queue.css">
-    <title>Cart</title>
+    <title>Queue</title>
 </head>
 
 <body>
@@ -55,26 +44,44 @@
                     <th scope="col">Customer ID</th>
                     <th scope="col">Time</th>
                     <th scope="col">
-                        Done Button &nbsp; &nbsp;Cancel Button
+                        Done Button
                     </th>
+                    <th>Cancel Button</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>1</th>
-                    <th>Burger(1);pizza(1);</th>
-                    <th>900TK</th>
-                    <th>4</th>
-                    <th>11;45;55</th>
-                    <th>
-                        <button class="btn btn-info p_btn">Done</button>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                        <button class="btn btn-danger p_btn">Cancel</button>
-                    </th>
-                </tr>
+                <?php
 
+                foreach ($orders as $order) {
+
+                ?>
+                    <form action="queue.php" method="POST">
+                        <tr>
+                            <input class="hidden" name="id" type="text" width="10px" value="<?php echo $order["id"] ?>">
+                            <th><?php echo $order["id"] ?></th>
+                            <th><?php echo $order["description"] ?></th>
+                            <th><?php echo $order["totalCost"] . "TK" ?></th>
+                            <th><?php echo $order["customer_id"] ?></th>
+                            <th>11;45;55</th>
+                            <th>
+                                <button type="submit" id="done_btn_<?php echo $order["id"] ?>" class="btn btn-info p_btn">Done</button>
+                            </th>
+                            <th><button type="submit" id="cancel_btn_<?php echo $order["id"] ?>" class="btn btn-danger p_btn">Cancel</button>
+                            </th>
+                        </tr>
+                    </form>
+                <?php } ?>
             </tbody>
         </table>
     </div>
 </body>
+
+<script>
+    var hidden=document.getElementsByClassName("hidden");
+    for(var i=0;i<hidden.length;i++){
+        hidden[i].hidden=true;
+    }
+    //location.reload();
+</script>
 
 </html>
