@@ -5,6 +5,11 @@ $food_type = array(1 => 'Burger', 2 => 'Pizza', 3 => 'Sub', 4 => 'Drink');
 
 $rowCount = getMenuRowCount()["COUNT(*)"];
 
+if (isset($_POST['data'])) {
+    $data = ($_POST['data']);
+    print_r($data);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +22,7 @@ $rowCount = getMenuRowCount()["COUNT(*)"];
     <meta http-equiv='pragma' content='no-cache'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -33,7 +38,7 @@ $rowCount = getMenuRowCount()["COUNT(*)"];
         <nav class="navbar  justify-content-between">
             <a class="navbar-brand"> <img src="./Images/logo.png" alt="" class="logo"></a>
             <form class="form-inline">
-                 <!-- &nbsp; &nbsp; -->
+                <!-- &nbsp; &nbsp; -->
                 <button class="btn btn-outline-danger my-2 my-sm-0 " type="submit">Manage Account</button>
             </form>
         </nav>
@@ -99,7 +104,11 @@ $rowCount = getMenuRowCount()["COUNT(*)"];
 
                 </div>
                 <div>
-                <button onclick="sendData()" id="confirm_btn" class="btn btn-outline-primary my-2 my-sm-0 " type="submit">Confirm</button>
+                    <form name="form" method="POST" action="cart.php">
+                        <input type="text" name="txt_name" id="txt_id">
+                        <button id="hidden_btn" type="submit">hg</button>
+                    </form>
+                    <button onclick="sendData()" id="confirm_btn" class="btn btn-outline-primary my-2 my-sm-0 ">Confirm</button>
                 </div>
             </div>
         </div>
@@ -111,7 +120,9 @@ $rowCount = getMenuRowCount()["COUNT(*)"];
 <div class="footer text-muted">
     <p class="text-center">Total Item shown: <i id="rowCount"><?php echo $rowCount; ?></i></p>
     <script src="JS/order.js"></script>
-    <script src="JS/hudai.js" ></script>
+</div>
+
+<div id="test">
 </div>
 
 </html>

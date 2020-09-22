@@ -81,7 +81,7 @@ echo '<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria
                                 </li>
                             </ul>
                             <div class="modal-footer">
-                                <button onclick="cancleClick()" id="close_btn" type="button" class="btn btn-secondary" data-dismiss="modal">Cancle Item</button>
+                                <button onclick="cancleClick()" id="close_btn" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel Item</button>
                                 <button onclick="addClick()" id="add_btn" type="button" class="btn btn-primary">Add Item</button>
                             </div>
                         </div>

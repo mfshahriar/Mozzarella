@@ -7,11 +7,17 @@ var name;
 var addon_list = [];
 var addon_cost = 0;
 var list = [];
+var send_list = [];
 var addons;
 var cost_txt;
 var mainItemCost = 0;
 var id;
 var add_btn;
+
+var send_btn=document.getElementById("hidden_btn");
+send_btn.hidden=true;
+var send_txt=document.getElementById("txt_id");
+send_txt.hidden=true;
 
 function exist(id) {
   if (list[id + ""] == undefined) {
@@ -64,6 +70,10 @@ function addClick() {
 
   arr = [id, count.value, addon_list, name, cost];
   list[id + ""] = arr;
+
+  var temp = [id, count.value, cost];
+  send_list[id + ""] = temp;
+
   document.getElementById("cross_btn").click();
   arr = [];
   cost = 0;
@@ -164,25 +174,25 @@ function side_queue() {
 }
 side_queue();
 
-// function sendData() {
-//   // var data = list.filter(function (el) {
-//   //   return el != null;
-//   // });
-//   // var d2=[];
-//   // for(var i=0;i<data.length;i++){
-//   //   d2[i]=JSON.stringify(data[i]);
-//   // }
-//   // var data1="John";
-//   // var jsonString = JSON.stringify(data1);
-//    $.ajax({
-//         type: "POST",
-//         url: "./data.php",
-//         data: "nigga",
-//         cache: false,
-//         contentType:"application/json",
+function sendData() {
+  var data = send_list.filter(function (el) {
+    return el != null;
+  });
+  var d2 = [];
+  for (var i = 0; i < data.length; i++) {
+    d2[i] = JSON.stringify(data[i]);
+    //console.log(d2[i]);
+  }
+  var d = JSON.stringify(d2);
+  send_txt.value=d;
+  send_btn.click();
 
-//         success: function(){
-//             alert(Response);
-//         }
-//     });
-// }
+
+//   const fs = require("fs");
+
+//   // Write data in 'Output.txt' .
+//   fs.writeFile("data.txt", d, (err) => {
+//     // In case of a error throw err.
+//     if (err) throw err;
+//   });
+}
