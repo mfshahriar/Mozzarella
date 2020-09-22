@@ -1,0 +1,33 @@
+.cart-header {
+  color: white;
+  padding: 2%;
+}
+:default {
+  overflow-x: hidden;
+}
+.prices {
+  padding-right: 10%;
+}
+
+#total-price {
+  padding-right: 2.5%;
+}
+
+.columns {
+  width: 100%;
+  float: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 2%;
+}
+
+.columns:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#div1 {
+  width: 100%;
+  overflow-y: scroll;
+}

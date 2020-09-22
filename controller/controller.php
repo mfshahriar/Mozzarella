@@ -29,9 +29,19 @@ function getMenuRowCount(){
 
 function getAllFoods()
 {
-    $query="SELECT * FROM `menu";
+    $query="SELECT * FROM menu";
     $foods=getArray($query);
     return $foods;
+}
+
+
+
+function addOrderToQueue($decpription,$totalCost,$customer_id){
+    $orderTime=date("h:i:s");
+    $query='INSERT INTO queue (description, totalCost,orderTime,customer_id)
+    VALUES ("'.$decpription.'", '.$totalCost.','.$orderTime.', '.$customer_id.');';
+    echo $query;
+    execute($query);
 }
 
 ?>

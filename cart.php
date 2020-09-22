@@ -20,9 +20,6 @@ if (isset($_POST['txt_name']) && $_POST['txt_name'] != "[]") {
 }
 //print_r( $item_array);
 
-function addOrderToDb(){
-}
-
 
 ?>
 
@@ -131,11 +128,18 @@ function addOrderToDb(){
 
         <tr>
           <td align="left" colspan="2">
-            <form action="order.php">
+            <form action="cart.php">
               <?php
-              if(array_key_exists('confirm_btn', $_POST)) { 
-                addOrderToDb(); 
-            } 
+              if (isset($_POST['button1'])) {
+                $description = "";
+                $index = 0;
+                foreach ($item_array as $item) {
+                  $description = $description . $item['f_name'] . "(" . $arr[$index][1] . ");";
+                  $index++;
+                }
+                echo $description;
+                addOrderToQueue($description, $totalPrice, "1");
+              }
               ?>
               <button name="confirm_btn" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Confirm Order
