@@ -1,6 +1,18 @@
 <?php
 
+
+
 session_start();
+
+if(isset($_GET['emp']) && isset($_GET['type'] )){
+  $_SESSION["empname"]=$_GET['emp'];
+  $_SESSION["emptype"]=$_GET['type'];
+}
+
+if(!isset($_SESSION["empname"]) || $_SESSION["emptype"]!="admin"){
+  header("Location: index.php");
+}
+
 require "./includes/db_connect.inc.php";
 $msg = "";
 include "filter_helper.php";
@@ -47,8 +59,9 @@ $curr_pg = ($i/$j) + 1;
 <div >
 
     <div class="bar">
-      <a href="admin_emp.php">Empolyee</a>
-      <a href="admin_cus.php">Customer</a>
+      <a href="admin_emp.php?emp=empname&type=admin">Empolyee</a>
+      <a href="admin_cus.php?emp=empname&type=admin">Customer</a>
+      <a href="logout.php">Log out</a>
     </div>
 
     <div class="columns">

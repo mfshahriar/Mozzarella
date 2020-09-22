@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
     }
 
     if(!empty($cus_phone_req) && !empty($cus_password_req)){
-        $sqlUserCheck = "select cus_password from customers where cus_phone_number = '$cus_phone_req';";
+        $sqlUserCheck = "select id, cus_password from customers where cus_phone_number = '$cus_phone_req';";
   
         $resultUserCheck = mysqli_query($conn, $sqlUserCheck);
         $userCount = mysqli_num_rows($resultUserCheck);
@@ -32,11 +32,14 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
         }else{
           while($row = mysqli_fetch_assoc($resultUserCheck)){
             $pass_in_db = $row['cus_password'];
+            $customer_id = $row['id'];
           }
   
           if(password_verify($cus_password_req, $pass_in_db)){
             $_SESSION["user_number"] = $cus_phone_req;
-            header("Location: profile.php");
+            $_SESSION["user_id"]=$customer_id;
+            // echo  $_SESSION["user_id"];
+            header("Location: order.php");
           }else{
             $cus_password_err = "Wrong password!";
           }

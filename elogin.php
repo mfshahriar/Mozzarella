@@ -5,6 +5,7 @@ session_start();
 
 $emp_username_req=$emp_password_req=$pass_in_db=$emp_type_req="";
 $emp_username_err=$emp_password_err=$emp_type_err="";
+$emp_status="";
 
 if($_SERVER['REQUEST_METHOD']== "POST"){
     if(empty($_POST['emp_username'])){
@@ -41,12 +42,21 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
           }
   
           if(password_verify($emp_password_req, $pass_in_db)){
-            $_SESSION["empname"] = $emp_user_req;
-            header("Location: profile.php");
-          }else{
+            $_SESSION["empname"] = $emp_username_req;
+            $_SESSION["emptype"] = $emp_type_req;
+            if($_SESSION["emptype"]=="cashier"){
+              header("Location: cashier_order.php");
+            }elseif($_SESSION["emptype"]=="deleveryman"){
+              $emp_status= "Deliveryman can not enter";
+            }elseif($_SESSION["emptype"]=="controller"){
+            header("Location: controller_food.php");
+            }elseif($_SESSION["emptype"]=="admin"){
+            header("Location: admin_emp.php");
+            }else{
             $emp_password_err = "Wrong password!";
           }
         }
+      }
     }
 }
 
@@ -72,7 +82,9 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
     </header>
     <div class="container">
         <section class="columns">
+
             <h1>Back to Work Are We!</h1>
+            <h1><?php echo $emp_status ?></h1>
         </section>
         <form class="form" name="index_form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">           
             <div class="input-group">

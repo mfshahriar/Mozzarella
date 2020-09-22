@@ -1,5 +1,10 @@
 <?php
+session_start();
 require "./controller/controller.php";
+
+if(!isset($_SESSION["empname"]) || $_SESSION["emptype"]!="controller"){
+  header("Location: index.php");
+}
 
 if (isset($_POST['data'])&&isset($_POST['hidden_btn1'])) {
   $data = $_POST['data'];
@@ -51,7 +56,8 @@ $items = getAllInventoryItems();
       <a class="navbar-brand"> <img src="./Images/logo.png" alt="" class="logo"></a>
       <form class="form-inline">
 
-        <button class="btn btn-outline-danger my-2 my-sm-0 " type="submit">Manage Account</button>
+      <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a>
+        <a href="logout.php" class="btn btn-outline-danger btn-lg " role="button" aria-pressed="true">log out</a>
       </form>
     </nav>
     </div>
@@ -66,9 +72,9 @@ $items = getAllInventoryItems();
           </button>
           <div class="navbar-collapse collapse" id="navbarWEX">
             <div class="nav flex-sm-column flex-row" style="padding-top:360px; position: fixed;">
-              <a id="burger_btn" class="nav-item nav-link optn_btn " href="#Burger_h1">Food</a>
+              <a id="burger_btn" class="nav-item nav-link optn_btn " href="controller_food.php">Food</a>
               <a id="pizza_btn" class="nav-item nav-link optn_btn " href="#Pizza_h1">Delivery Man</a>
-              <a id="sub_btn" class="nav-item nav-link optn_btn" href="#Sub_h1">Inventory</a>
+              <a id="sub_btn" class="nav-item nav-link optn_btn" href="controller_inventory.php">Inventory</a>
             </div>
           </div>
         </nav>

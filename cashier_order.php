@@ -1,8 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION["user_number"])){
+
+  if(!isset($_SESSION["empname"]) || $_SESSION["emptype"]!="cashier"){
     header("Location: index.php");
-}
+  }
 require "./controller/controller.php";
 
 $food_type = array(1 => 'Burger', 2 => 'Pizza', 3 => 'Sub', 4 => 'Drink');
@@ -43,6 +44,7 @@ if (isset($_POST['data'])) {
             <a class="navbar-brand"> <img src="./Images/logo.png" alt="" class="logo"></a>
             <form class="form-inline">
                 <!-- &nbsp; &nbsp; -->
+                <a href="queue.php" class="btn btn-outline-success btn-lg " role="button" aria-pressed="true">Queue</a>
                 <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a>
                 <a href="logout.php" class="btn btn-outline-danger btn-lg " role="button" aria-pressed="true">log out</a>
             </form>

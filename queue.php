@@ -32,6 +32,7 @@ $orders = getAllOrders();
 <body>
     <header style="background-color: #292938;">
         <h2 class="cart-header">Order Queue</h2>
+        <a href="cashier_order.php" style="float: right;" class="btn btn-outline-danger btn-lg " role="button" aria-pressed="true">Back</a>
     </header>
 
     <div class="columns" id="div_main">

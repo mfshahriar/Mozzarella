@@ -1,7 +1,10 @@
-
 <?php
 
+
 session_start();
+
+
+
 
 require "includes/db_connect.inc.php";
 
@@ -16,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $i = $_POST['next_btn'];
   }elseif(isset($_POST['pg_btn'])){
     $i = $_POST['pg_btn'];
-  }elseif (isset($_POST['perpg_btn'])) {
+  }elseif (isset($_POST['perpg_btn']) && !empty($_POST['records_per_page'])) {
     $_SESSION['per_page'] = $_POST['records_per_page'];
   }
 
@@ -61,9 +64,10 @@ $pgNmbr = ceil($rowCount['total_rows'] / $j);
     </header>
 <div >
 
-    <div class="bar">
-      <a href="admin_emp.php">Empolyee</a>
-      <a href="admin_cus.php">Customer</a>
+<div class="bar">
+      <a href="admin_emp.php?emp=empname&type=admin">Empolyee</a>
+      <a href="admin_cus.php?emp=empname&type=admin">Customer</a>
+      <a href="logout.php">Log out</a>
     </div>
 
     <div class="columns">
