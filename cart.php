@@ -1,6 +1,6 @@
 <?php
 require "./controller/controller.php";
-
+$id = 1;
 $data = "";
 $arr = array();
 $totalPrice = 0;
@@ -18,7 +18,25 @@ if (isset($_POST['txt_name']) && $_POST['txt_name'] != "[]") {
     array_push($item_array, getItemById($arr[$i][0]));
   }
 }
-//print_r( $item_array);
+
+$description = "";
+$index = 0;
+foreach ($item_array as $item) {
+  $description = $description . $item['f_name'] . "(" . $arr[$index][1] . ");";
+  $index++;
+}
+$json_array = array();
+array_push($json_array, $description);
+array_push($json_array, $totalPrice);
+array_push($json_array, $id);
+$json_string = json_encode($json_array);
+
+if (isset($_GET['data'])){
+  $data=$_GET['data'];
+  $array=json_decode($data);
+  print_r($array);
+  addOrderToQueue($array[0], $array[1],$array[2]);
+}
 
 
 ?>
@@ -36,7 +54,7 @@ if (isset($_POST['txt_name']) && $_POST['txt_name'] != "[]") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="./CSS/cart.css">
@@ -128,27 +146,13 @@ if (isset($_POST['txt_name']) && $_POST['txt_name'] != "[]") {
 
         <tr>
           <td align="left" colspan="2">
-            <form action="cart.php">
-              <?php
-              if (isset($_POST['button1'])) {
-                $description = "";
-                $index = 0;
-                foreach ($item_array as $item) {
-                  $description = $description . $item['f_name'] . "(" . $arr[$index][1] . ");";
-                  $index++;
-                }
-                echo $description;
-                addOrderToQueue($description, $totalPrice, "1");
-              }
-              ?>
-              <button name="confirm_btn" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              <button onclick="sendData()" name="confirm_btn" value="<?php?>" type="submit" class="button btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Confirm Order
               </button>
-            </form>
           </td>
           <td align="left" colspan="1">
             <form action="order.php">
-              <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+              <button id="close_btn" type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                 Cancel
               </button>
             </form>
@@ -160,8 +164,8 @@ if (isset($_POST['txt_name']) && $_POST['txt_name'] != "[]") {
     </table>
 
   </div>
-
-
+  <p id="hidden_p"><?php echo $json_string ?></p>
+  <script src="./JS/cart.js"></script>
 
 </body>
 
