@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-  if(!isset($_SESSION["empname"]) || $_SESSION["emptype"]!="cashier"){
+if (!isset($_SESSION["empname"]) || $_SESSION["emptype"] != "cashier") {
     header("Location: index.php");
-  }
+}
 require "./controller/controller.php";
 
 $food_type = array(1 => 'Burger', 2 => 'Pizza', 3 => 'Sub', 4 => 'Drink');
@@ -46,7 +46,7 @@ if (isset($_POST['data'])) {
             <form class="form-inline">
                 <!-- &nbsp; &nbsp; -->
                 <a href="queue.php" class="btn btn-outline-success btn-lg " role="button" aria-pressed="true">Queue</a>
-                <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a>
+                <!-- <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a> -->
                 <a href="logout.php" class="btn btn-outline-danger btn-lg " role="button" aria-pressed="true">log out</a>
             </form>
         </nav>
@@ -112,10 +112,11 @@ if (isset($_POST['data'])) {
 
                 </div>
                 <div>
-                    <form name="form" method="POST" action="cart.php">
+                    <form id="hidden_form" name="form" method="POST" action="cart.php">
                         <input type="text" name="txt_name" id="txt_id">
-                        <button id="hidden_btn" type="submit">hg</button>
+                        <button id="hidden_btn" type="submit">order</button>
                     </form>
+                    <h1>Customer Orders</h1>
                     <button onclick="sendData()" id="confirm_btn" class="btn btn-outline-primary my-2 my-sm-0 ">Confirm</button>
                 </div>
             </div>
@@ -127,7 +128,9 @@ if (isset($_POST['data'])) {
 
 <div class="footer text-muted">
     <p class="text-center">Total Item shown: <i id="rowCount"><?php echo $rowCount; ?></i></p>
-    <script src="JS/order.js"></script>
+    <script src="JS/order.js">
+        document.getElementById("hide").hidden = true;
+    </script>
 </div>
 
 <div id="test">

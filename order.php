@@ -46,7 +46,7 @@ $user_id=$_SESSION['user_id'];
             <a class="navbar-brand"> <img src="./Images/logo.png" alt="" class="logo"></a>
             <form class="form-inline">
                 <div class="navbar navbar-expand-lg navbar-light bg-light rounded mr-4"><span class="navbar-brand mb-0 h1">ID:<i id="user_id"><?php echo $user_id ?></i></span></div>
-                <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a>
+                <!-- <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a> -->
                 <a href="logout.php" class="btn btn-outline-danger btn-lg " role="button" aria-pressed="true">log out</a>
             </form>
         </nav>

@@ -1,5 +1,6 @@
 var ajx = new XMLHttpRequest();
 //arr = [id, count.value, addon_list, name, cost];
+document.getElementById("hidden_form").hidden=true;
 var arr = [];
 var cost = 0;
 var count = 1;
