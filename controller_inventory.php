@@ -2,11 +2,11 @@
 session_start();
 require "./controller/controller.php";
 
-if(!isset($_SESSION["empname"]) || $_SESSION["emptype"]!="controller"){
+if (!isset($_SESSION["empname"]) || $_SESSION["emptype"] != "controller") {
   header("Location: index.php");
 }
 
-if (isset($_POST['data'])&&isset($_POST['hidden_btn1'])) {
+if (isset($_POST['data']) && isset($_POST['hidden_btn1'])) {
   $data = $_POST['data'];
   $data = json_decode($data);
   //var_dump($data);
@@ -44,7 +44,7 @@ $items = getAllInventoryItems();
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-
+  <link rel="icon" href="Images/icon.png">
   <title>Inventory</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./CSS/orderStyle.css">
@@ -56,7 +56,7 @@ $items = getAllInventoryItems();
       <a class="navbar-brand"> <img src="./Images/logo.png" alt="" class="logo"></a>
       <form class="form-inline">
 
-      <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a>
+        <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a>
         <a href="logout.php" class="btn btn-outline-danger btn-lg " role="button" aria-pressed="true">log out</a>
       </form>
     </nav>

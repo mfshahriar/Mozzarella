@@ -18,11 +18,12 @@ if (isset($_POST['txt_name']) && $_POST['txt_name'] != "[]") {
     array_push($item_array, getItemById($arr[$i][0]));
   }
 }
+$id=$arr[0][3];
 
-$description = "";
+$description = "total cost:".$totalPrice.";";
 $index = 0;
 foreach ($item_array as $item) {
-  $description = $description . $item['f_name'] . "(" . $arr[$index][1] . ");";
+  $description = $description . $item['f_name'] . "(" . $arr[$index][1] . "); \n";
   $index++;
 }
 $json_array = array();
@@ -52,6 +53,7 @@ if (isset($_GET['data'])){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Images/icon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
