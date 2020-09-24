@@ -43,6 +43,7 @@ $items = getAllFoods();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="icon" href="Images/icon.png">
 
 
 
@@ -57,7 +58,7 @@ $items = getAllFoods();
             <a class="navbar-brand"> <img src="./Images/logo.png" alt="" class="logo"></a>
             <form class="form-inline">
 
-            <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a>
+            <!-- <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a> -->
                 <a href="logout.php" class="btn btn-outline-danger btn-lg " role="button" aria-pressed="true">log out</a>
             </form>
         </nav>
@@ -74,7 +75,6 @@ $items = getAllFoods();
                     <div class="navbar-collapse collapse" id="navbarWEX">
                         <div class="nav flex-sm-column flex-row" style="padding-top:360px; position: fixed;">
                             <a id="burger_btn" class="nav-item nav-link optn_btn " href="controller_food.php">Food</a>
-                            <a id="pizza_btn" class="nav-item nav-link optn_btn " href="#Pizza_h1">Delivery Man</a>
                             <a id="sub_btn" class="nav-item nav-link optn_btn" href="controller_inventory.php">Inventory</a>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ $items = getAllFoods();
                             <h4>
                                 <div class="input-group">
                                     <span class="input-group-addon">
-                                        <h5 class="text-center mt-4">New Amount:</h5>
+                                        <h5 class="text-center mt-4">New Price:</h5>
                                     </span>
                                     <input id="inp_<?php echo $item["id"] ?>" type="text" class="form-control mt-4" name="msg">
                                 </div>

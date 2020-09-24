@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
           if(mysqli_query($conn, $sqlUserUpdate)){
             $regSuccessful = "Update was successful";
-            header("refresh:2; url=admin_emp.php");
+            header("refresh:2; url=admin_emp.php?emp=empname&type=admin");
           }
           else{
             $regSuccessful = "Update Unsuccessful";
@@ -85,13 +85,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Signup Page</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="Images/icon.png">
 </head>
 <body class="index-pages">
     <header>
         <div class="on-nav">
         <nav class="main-nav">
             <ul>
-                <li><a href="admin_emp.php">Back</a></li>
+                <li><a href="admin_emp.php?emp=empname&type=admin">Back</a></li>
                 
             </ul>
         </nav>

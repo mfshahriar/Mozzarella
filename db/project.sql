@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2020 at 10:43 PM
+-- Generation Time: Sep 23, 2020 at 10:53 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -63,7 +63,6 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `cus_name`, `cus_phone_number`, `cus_password`, `cus_email`, `cus_address`, `cus_total_spending`) VALUES
-(1, 'bing', '0321321', '$2y$10$nbifCRk4wib5hrkbN9OfPeSPdeC4ukEtU/4tzA73FAs6uKDNew9EW', 'bing@wing.com', 'akashe', 500),
 (2, 'zxc', '1234', '$2y$10$n7cu82.DCTbYRDTEGvks8utgQ5kz3w0aPvt4wIk/sM8BEv5LoCE7a', 'zxc@zxc.com', 'zxcvb', NULL),
 (3, 'customer3', '054321', '$2y$10$Pu1p7r027fbQpnj8z8kvNOl4MiElJQzIRFL5JUvyq1Eddvx5ZX1hi', 'bing@wing.com', 'batashe', NULL),
 (4, 'customer4', '0004', '$2y$10$k/YLtgNBH.a3nDKdZLXAkOtUaqbH86SWF6/k4RQzS.CuDFpZw/c6.', 'bing@wing.com', 'batashe', 350),
@@ -187,7 +186,7 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id`, `f_name`, `f_type`, `price`, `review`, `image`) VALUES
-(1, 'Chicken Burger', '1', 200, 5, '1'),
+(1, 'Chicken Burger', '1', 210, 5, '1'),
 (2, 'Beef Burger', '1', 220, 5, '2'),
 (3, 'Chicken Cheese Burger', '1', 240, 5, '3'),
 (4, 'Beef Cheese Burger', '1', 280, 5, '4'),
@@ -202,8 +201,7 @@ INSERT INTO `menu` (`id`, `f_name`, `f_type`, `price`, `review`, `image`) VALUES
 (13, 'Oreo Milkshake', '4', 150, 5, '13'),
 (14, 'Cold Coffee', '4', 140, 5, '14'),
 (15, 'Chocolate Shake', '4', 160, 5, '15'),
-(16, 'Milk Shake', '4', 120, 5, NULL),
-(17, 'Tea', '4', 40, 5, NULL);
+(16, 'Tea', '4', 40, 5, '16');
 
 -- --------------------------------------------------------
 
@@ -215,7 +213,7 @@ CREATE TABLE `queue` (
   `id` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `totalCost` int(11) DEFAULT NULL,
-  `orderTime` time DEFAULT NULL,
+  `orderTime` varchar(255) DEFAULT NULL,
   `customer_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -224,12 +222,7 @@ CREATE TABLE `queue` (
 --
 
 INSERT INTO `queue` (`id`, `description`, `totalCost`, `orderTime`, `customer_id`) VALUES
-(17, 'Chicken Burger(2);Oreo Milkshake(3);', 850, NULL, 1),
-(19, 'Chicken Pizza(1);Cold Coffee(4);', 1160, NULL, 1),
-(20, 'Chicken Burger(3);Beef Cheese Burger(3);Milk Shake(3);', 1830, NULL, 1),
-(21, 'Chicken Burger(3);Chicken Pizza(2);Oreo Milkshake(3);', 2280, NULL, 1),
-(22, 'Cold Coffee(2);Milk Shake(3);', 640, NULL, 1),
-(23, 'Chocolate Shake(2);', 320, NULL, 1);
+(41, 'total cost:600;Chicken Pizza(1); \n', 600, '10:49:33', 1);
 
 --
 -- Indexes for dumped tables
@@ -309,7 +302,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `queue`
 --
 ALTER TABLE `queue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -23,7 +23,7 @@ $j = 5;
 session_unset();
 session_destroy();
 
-$sql = "select emp_name, emp_username, emp_phone_number, emp_email,emp_type from employee LIMIT $i, $j;";
+$sql = "select emp_name, emp_username, emp_phone_number, emp_email,emp_address,emp_type from employee LIMIT $i, $j;";
 $sqlTotalRows = "select count(*) as total_rows from employee;";
 
 $result = mysqli_query($conn, $sql);
@@ -46,6 +46,7 @@ $curr_pg = ($i/$j) + 1;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="CSS/adminStyle.css">
+    <link rel="icon" href="Images/icon.png">
     
 
  
@@ -101,6 +102,7 @@ $curr_pg = ($i/$j) + 1;
                   <th>E Username</th>
                   <th>phone</th>
                   <th>email</th>
+                  <th>Address</th>
                   <th>type</th>
                 </tr>
               </thead>
@@ -111,6 +113,7 @@ $curr_pg = ($i/$j) + 1;
                     <td><?php echo $row['emp_username']; ?></td>
                     <td><?php echo $row['emp_phone_number']; ?></td>
                     <td><?php echo $row['emp_email']; ?></td>
+                    <td><?php echo $row['emp_address']; ?></td>
                     <td><?php echo $row['emp_type']; ?></td>
   
                   </tr>

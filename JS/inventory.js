@@ -10,6 +10,8 @@ function sendData(id) {
     document.getElementById("hidden_txt").value = sendData;
     //alert(typeof(sendData));
     document.getElementById("hidden_btn1").click();
+  } else {
+    alert("Empty Input");
   }
 }
 
@@ -23,5 +25,7 @@ function addNewInventory() {
     document.getElementById("hidden_txt").value = sendData;
     //alert(sendData);
     document.getElementById("hidden_btn2").click();
+  } else {
+    alert("Fill All Values");
   }
 }

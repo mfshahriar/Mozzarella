@@ -100,6 +100,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Signup Page</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="Images/icon.png">
 </head>
 <body class="index-pages">
     <header>
@@ -115,7 +116,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     <div class="container">
     <h3 style="color:green;"><?php echo $regSuccessful; ?></h3>
         <section class="columns">
-            <h1>Your First step towards wholespme Awesomeness</h1>
+            <h1>Your First step towards wholesome Awesomeness</h1>
         </section>
         <form class="form" id="signup-form" name="index_form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
             <div class="input-group">

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["user_number"])){
+if (!isset($_SESSION["user_number"])) {
     header("Location: index.php");
 }
 require "./controller/controller.php";
@@ -13,6 +13,8 @@ if (isset($_POST['data'])) {
     $data = ($_POST['data']);
     print_r($data);
 }
+
+$user_id=$_SESSION['user_id'];
 
 ?>
 
@@ -29,6 +31,7 @@ if (isset($_POST['data'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="icon" href="Images/icon.png">
 
 
 
@@ -42,8 +45,8 @@ if (isset($_POST['data'])) {
         <nav class="navbar  justify-content-between">
             <a class="navbar-brand"> <img src="./Images/logo.png" alt="" class="logo"></a>
             <form class="form-inline">
-                <!-- &nbsp; &nbsp; -->
-                <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a>
+                <div class="navbar navbar-expand-lg navbar-light bg-light rounded mr-4"><span class="navbar-brand mb-0 h1">ID:<i id="user_id"><?php echo $user_id ?></i></span></div>
+                <!-- <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a> -->
                 <a href="logout.php" class="btn btn-outline-danger btn-lg " role="button" aria-pressed="true">log out</a>
             </form>
         </nav>
@@ -109,7 +112,7 @@ if (isset($_POST['data'])) {
 
                 </div>
                 <div>
-                    <form name="form" method="POST" action="cart.php">
+                    <form id="hidden_form" name="form" method="POST" action="cart.php">
                         <input type="text" name="txt_name" id="txt_id">
                         <button id="hidden_btn" type="submit">hg</button>
                     </form>

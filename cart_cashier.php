@@ -153,7 +153,7 @@ if (isset($_GET['data'])){
               </button>
           </td>
           <td align="left" colspan="1">
-            <form action="order.php">
+            <form action="cashier_order.php">
               <button id="close_btn" type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                 Cancel
               </button>

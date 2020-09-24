@@ -18,10 +18,10 @@ function addItem($name, $amount, $per_cost)
 
 function addOrderToQueue($decpription, $totalCost, $customer_id)
 {
-    //$orderTime=date("h:i:s");
-    $orderTime = "null";
+    $orderTime=date("h:i:s");
+    //$orderTime = "null";
     $query = 'INSERT INTO queue (description, totalCost,orderTime,customer_id)
-    VALUES ("' . $decpription . '", ' . $totalCost . ',' . $orderTime . ', ' . $customer_id . ');';
+    VALUES ("' . $decpription . '", ' . $totalCost . ',"' . $orderTime . '", ' . $customer_id . ');';
     //echo $query;
     execute($query);
 }

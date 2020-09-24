@@ -8,8 +8,11 @@ function sendData(id) {
     document.getElementById("hidden_txt").value = sendData;
     //alert(sendData);
     document.getElementById("hidden_btn1").click();
+  } else {
+    alert("Empty Input");
   }
 }
+
 function addNewItem() {
   var name = document.getElementById("inp_name");
   var price = document.getElementById("inp_price");
@@ -20,5 +23,7 @@ function addNewItem() {
     document.getElementById("hidden_txt").value = sendData;
     //alert(sendData);
     document.getElementById("hidden_btn2").click();
+  } else {
+    alert("Fill All Values");
   }
 }

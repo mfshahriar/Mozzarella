@@ -15,8 +15,7 @@ var mainItemCost = 0;
 var id;
 var add_btn;
 
-var customer_id = "";
-customer_id = document.getElementById("user_id").innerHTML;
+var customer_id = "1";
 
 var send_btn = document.getElementById("hidden_btn");
 send_btn.hidden = true;

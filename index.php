@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Ordering System</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="Images/icon.png">
 </head>
 <body class="index-pages" id="index1"  >
     <div >
