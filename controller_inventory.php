@@ -56,9 +56,7 @@ $items = getAllInventoryItems();
       <a class="navbar-brand"> <img src="./Images/logo.png" alt="" class="logo"></a>
       <form class="form-inline">
 
-
-        <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a>
-
+        <!-- <a href="#" class="btn btn-outline-info btn-lg " role="button" aria-pressed="true">Manage Account</a> -->
         <a href="logout.php" class="btn btn-outline-danger btn-lg " role="button" aria-pressed="true">log out</a>
       </form>
     </nav>

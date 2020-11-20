@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "./controller/controller.php";
 $id = 1;
 $data = "";
@@ -6,9 +7,11 @@ $arr = array();
 $totalPrice = 0;
 $item_array = array();
 
+$food_ids = array();
+$food_counts = array();
+
 if (isset($_POST['txt_name']) && $_POST['txt_name'] != "[]") {
   $data = $_POST['txt_name'];
-  //print_r($data);
   $d = json_decode($data);
 
   for ($i = 0; $i < count($d); $i++) {
@@ -18,9 +21,11 @@ if (isset($_POST['txt_name']) && $_POST['txt_name'] != "[]") {
     array_push($item_array, getItemById($arr[$i][0]));
   }
 }
-$id=$arr[0][3];
+$id = $arr[0][3];
 
-$description = "total cost:".$totalPrice.";";
+
+
+$description = "total cost:" . $totalPrice . ";";
 $index = 0;
 foreach ($item_array as $item) {
   $description = $description . $item['f_name'] . "(" . $arr[$index][1] . "); \n";
@@ -30,13 +35,13 @@ $json_array = array();
 array_push($json_array, $description);
 array_push($json_array, $totalPrice);
 array_push($json_array, $id);
+array_push($json_array, $data);
 $json_string = json_encode($json_array);
 
-if (isset($_GET['data'])){
-  $data=$_GET['data'];
-  $array=json_decode($data);
-  print_r($array);
-  addOrderToQueue($array[0], $array[1],$array[2]);
+if (isset($_GET['data'])) {
+  $data = $_GET['data'];
+  $array = json_decode($data);
+  addOrderToQueue($array[0], $array[1], $array[2]);
 }
 
 
@@ -148,9 +153,9 @@ if (isset($_GET['data'])){
 
         <tr>
           <td align="left" colspan="2">
-              <button onclick="sendData()" name="confirm_btn" value="<?php?>" type="submit" class="button btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Confirm Order
-              </button>
+            <button onclick="sendData()" name="confirm_btn" value="<?php?>" type="submit" class="button btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Confirm Order
+            </button>
           </td>
           <td align="left" colspan="1">
             <form action="order.php">

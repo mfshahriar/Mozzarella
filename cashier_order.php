@@ -112,13 +112,10 @@ if (isset($_POST['data'])) {
 
                 </div>
                 <div>
-
-                    <form id="hidden_form" name="form" method="POST" action="cart.php">
-
+                    <form id="hidden_form" name="form" method="POST" action="cart_cashier.php">
                         <input type="text" name="txt_name" id="txt_id">
                         <button id="hidden_btn" type="submit">order</button>
                     </form>
-                    <h1>Customer Orders</h1>
                     <button onclick="sendData()" id="confirm_btn" class="btn btn-outline-primary my-2 my-sm-0 ">Confirm</button>
                 </div>
             </div>
@@ -130,9 +127,9 @@ if (isset($_POST['data'])) {
 
 <div class="footer text-muted">
     <p class="text-center">Total Item shown: <i id="rowCount"><?php echo $rowCount; ?></i></p>
-
-
-    <script src="JS/order.js"></script>
+    <script src="JS/cashier.js">
+        document.getElementById("hide").hidden = true;
+    </script>
 </div>
 
 <div id="test">

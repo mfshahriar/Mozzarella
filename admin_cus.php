@@ -3,10 +3,8 @@
 
 session_start();
 
-
-
-
 require "includes/db_connect.inc.php";
+
 
 $i = 0;
 $j = 5;

@@ -17,12 +17,12 @@ if(!empty($filterParameters['type_filter'])){
 function prepareFilterQueries($filterParameters, $i, $j){
 
  if(isset($_SESSION['type_filter'])){
-    $sql = "select emp_name, emp_username, emp_phone_number, emp_email,emp_address,emp_type from employee
+    $sql = "select emp_name, emp_username, emp_phone_number, emp_email,emp_type from employee
     where emp_type = '".$filterParameters['type_filter']."' LIMIT $i, $j;";
 
   
   }else{
-    $sql = "select emp_name, emp_username, emp_phone_number, emp_email,emp_address,emp_type from employee LIMIT $i, $j;";
+    $sql = "select emp_name, emp_username, emp_phone_number, emp_email,emp_type from employee LIMIT $i, $j;";
   }
 
   return $sql;

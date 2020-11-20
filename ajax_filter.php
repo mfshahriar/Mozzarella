@@ -49,18 +49,16 @@ $curr_pg;
                 <th>E Username</th>
                 <th>phone</th>
                 <th>email</th>
-                <th>Address</th>
                 <th>type</th>
     </tr>
   </thead>
   <tbody>
     <?php while($row = mysqli_fetch_assoc($result)){ ?>
       <tr>
-                  <td><?php echo $row['emp_name']; ?></td>
+      <td><?php echo $row['emp_name']; ?></td>
                   <td><?php echo $row['emp_username']; ?></td>
                   <td><?php echo $row['emp_phone_number']; ?></td>
                   <td><?php echo $row['emp_email']; ?></td>
-                  <td><?php echo $row['emp_address']; ?></td>
                   <td><?php echo $row['emp_type']; ?></td>
       </tr>
     <?php } ?>

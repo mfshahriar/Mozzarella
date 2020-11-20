@@ -18,11 +18,10 @@ function addItem($name, $amount, $per_cost)
 
 function addOrderToQueue($decpription, $totalCost, $customer_id)
 {
-    $orderTime=date("h:i:s");
+    $orderTime = date("h:i:s");
     //$orderTime = "null";
     $query = 'INSERT INTO queue (description, totalCost,orderTime,customer_id)
     VALUES ("' . $decpription . '", ' . $totalCost . ',"' . $orderTime . '", ' . $customer_id . ');';
-    //echo $query;
     execute($query);
 }
 
@@ -93,3 +92,48 @@ function removeOrderById($id)
     $query = "DELETE FROM queue WHERE queue.id = " . $id;
     execute($query);
 }
+
+function getOrderById($id)
+{
+    $query = "SELECT * FROM queue WHERE queue.id = " . $id.";";
+    $data = getResult($query);
+    return mysqli_fetch_assoc($data);
+}
+
+function updateAdminDataTotalSell($price)
+{
+    $query = 'SELECT * FROM `admin_data`';
+    $data = mysqli_fetch_assoc(getResult($query));
+    $price += $data["total_sell"];
+    $query = "UPDATE `admin_data` SET `total_sell` = '" . $price . "' WHERE `admin_data`.`no.` = 1;";
+    execute($query);
+}
+
+function updateSellCount($id, $count)
+{
+    $query = "SELECT * FROM `menu` WHERE menu.id= " . $id . ";";
+    $data = getResult($query);
+    $count += $data["sell_count"];
+    $query = "UPDATE `menu` SET `sell_count` = '".$count."' WHERE `menu`.`id` = ".$id.";";
+    execute($query);
+}
+function updateCustomerTotalCost($id,$cost){
+    $query = "SELECT * FROM `customers` WHERE customers.id= " . $id . ";";
+    $data = mysqli_fetch_assoc(getResult($query));
+    $cost+=$data["cus_total_spending"];
+    $query="UPDATE `customers` SET `cus_total_spending` = '".$cost."' WHERE `customers`.`id` = ".$id.";";
+    execute($query);
+}
+
+// function getAdminData(){
+//     $query = "SELECT COUNT(*) FROM customers";
+//     $count = mysqli_fetch_assoc(getResult($query));
+//     $cus_count=$count["COUNT(*)"];
+//     $query = 'SELECT * FROM `admin_data`';
+//     $data = mysqli_fetch_assoc(getResult($query));
+//     $query = "UPDATE `admin_data` SET `total_sell` = '" . $price . "' WHERE `admin_data`.`no.` = 1;";
+//     execute($query);
+//     $query = 'SELECT * FROM `admin_data`';
+//     $data = mysqli_fetch_assoc(getResult($query));
+//     return $data;
+// }

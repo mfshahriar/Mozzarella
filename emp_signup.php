@@ -98,7 +98,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
           mysqli_query($conn, $sqlUserInsert);
   
           $regSuccessful = "Registration was successful";
-          header("refresh:2; url=admin_emp.php?emp=empname&type=admin");
+          header("refresh:2; url=admin_emp.php");
         }
       }
 
@@ -123,7 +123,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <div class="on-nav">
         <nav class="main-nav">
             <ul>
-                <li><a href="admin_emp.php?emp=empname&type=admin">Back</a></li>
+                <li><a href="admin_emp.php">Back</a></li>
                 
             </ul>
         </nav>

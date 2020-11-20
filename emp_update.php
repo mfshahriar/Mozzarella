@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
           if(mysqli_query($conn, $sqlUserUpdate)){
             $regSuccessful = "Update was successful";
-            header("refresh:2; url=admin_emp.php?emp=empname&type=admin");
+            header("refresh:2; url=admin_emp.php");
           }
           else{
             $regSuccessful = "Update Unsuccessful";
@@ -92,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         <div class="on-nav">
         <nav class="main-nav">
             <ul>
-                <li><a href="admin_emp.php?emp=empname&type=admin">Back</a></li>
+                <li><a href="admin_emp.php">Back</a></li>
                 
             </ul>
         </nav>
